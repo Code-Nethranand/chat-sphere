@@ -21,17 +21,19 @@ const ChatContainer = () => {
 
   useEffect(() => {
     getMessages(selectedUser._id);
-
+  
     subscribeToMessages();
-
-    return () => unsubscribeFromMessages();
-  }, [selectedUser._id, getMessages, subscribeToMessages, unsubscribeFromMessages]);
+  
+    return () => {
+      unsubscribeFromMessages(); // Clean up the listener
+    };
+  }, [selectedUser._id]); // Ensure this runs when the selected user changes
 
   useEffect(() => {
-    if (messageEndRef.current && messages) {
+    if (messageEndRef.current) {
       messageEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-  }, [messages]);
+  }, [messages]); // Trigger when messages change
 
   if (isMessagesLoading) {
     return (
