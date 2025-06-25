@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="frontend/public/banner.png" alt="Chat Sphere Banner" />
+</p>
+
+
 # ✨ Full Stack Realtime Chat App ✨
 
 - 🌟 Tech stack: MERN + Socket.io + TailwindCSS + Daisy UI
